@@ -6,12 +6,18 @@ import './Task.css';
 const Task = (props) => {
   const [complete, setComplete] = useState(props.isComplete);
   const buttonClass = complete ? 'tasks__item__toggle--completed' : '';
+  const [color, setColor] = useState('black');
 
+  const completeActions = (complete) => {
+    setComplete(!complete);
+    setColor('limegreen');
+  };
   return (
     <li className="tasks__item">
       <button
         className={`tasks__item__toggle ${buttonClass}`}
-        onClick={() => setComplete(!complete)}
+        onClick={() => completeActions(complete)}
+        // onClick={() => setColor("limegreen")}
       >
         {props.title}
       </button>

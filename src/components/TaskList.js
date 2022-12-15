@@ -4,8 +4,8 @@ import Task from './Task';
 import './TaskList.css';
 
 const TaskList = (props) => {
-  const getTaskListJSX = (props) => {
-    return props.tasks.map((task) => {
+  // const getTaskListJSX = (props) => {
+    const tasks = props.tasks.map((task) => {
       return (
         <Task
           key={task.id}
@@ -15,9 +15,13 @@ const TaskList = (props) => {
         />
       );
     });
-  };
-  return <ul className="tasks__list no-bullet">{getTaskListJSX(props.tasks)}</ul>;
+    return (<div>
+      {tasks}
+    </div>);
+  // };
+  // return <ul className="tasks__list no-bullet">{getTaskListJSX(props.tasks)}</ul>;
 };
+
 
 TaskList.propTypes = {
   tasks: PropTypes.arrayOf(
