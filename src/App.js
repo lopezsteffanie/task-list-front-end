@@ -16,16 +16,16 @@ const TASKS = [
 ];
 
 const App = () => {
-  const [tasks, setTasks] = useState(TASKS);
+  const [data, setData] = useState(TASKS);
   const updateTasks = (updatedTask) => {
-    const tasks = TASKS.map((task) => {
+    const tasks = data.map((task) => {
       if (task.id === updatedTask.id) {
         return updatedTask;
       } else {
         return task;
       }
     });
-    setTasks(tasks);
+    setData(tasks);
   };
   return (
     <div className="App">
@@ -33,7 +33,7 @@ const App = () => {
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div>{<TaskList tasks={tasks} 
+        <div>{<TaskList tasks={data} 
         onUpdateTask={updateTasks}/>}</div>
       </main>
     </div>
